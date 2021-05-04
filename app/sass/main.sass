@@ -1,0 +1,521 @@
+@import _variables
+@import _fonts
+@import _reset
+@import _libs
+@import _buttons
+
+body, html
+    height: 100%
+    font-size: 10px
+
+.wrapper
+    display: flex
+    flex-direction: column
+    min-height: 100%
+
+section
+    flex: 1 0 auto
+
+.footer
+    flex: 0 0 auto
+
+.container
+    max-width: 121rem
+    margin: 0 auto
+    padding: 0 2rem
+
+.header
+    padding: 2.9rem 0 3.2rem 0
+
+    &_wrapper
+        display: flex
+        align-items: center
+        justify-content: space-between
+
+    &_link-logo
+        display: block
+
+    &_logo-images
+        width: 100%
+        height: 100%
+        object-fit: contain
+
+    &_menu
+        max-width: 77rem
+        width: 100%
+
+    &_list
+        display: flex
+
+    &_list-item
+        margin-right: 6rem
+        border: .1rem solid transparent
+        border:
+            right: none
+            left: none
+        padding: .3rem 0
+        transition: .3s ease all
+
+        &:last-child
+            margin-right: 0
+
+        &:hover
+            border: .1rem solid $top-color
+            border:
+                right: none
+                left: none
+
+    &_list-link
+        font-family: $TTHoves
+        font-weight: $fw400
+        font-size: 1.2rem
+        line-height: 1.2rem
+        color: $top-color
+        text-decoration: none
+        text-transform: uppercase
+
+.project
+    margin-bottom: 12rem
+
+    .swiper-container
+        max-width: 77rem
+        height: auto
+
+    &_wrapper
+        display: flex
+        align-items: center
+
+    &_info
+        width: 50%
+
+    &_main-images
+        width: 50%
+
+    .project_info
+
+        &-title
+            font-family: $TTHoves
+            font-weight: $fw300
+            font-size: 6.4rem
+            line-height: 6.4rem
+            color: $subhead
+            display: block
+            margin-bottom: 9rem
+
+            span
+                color: $top-color
+                font-weight: $fw700
+                display: block
+
+    .project_arrow
+        position: relative
+        display: flex
+        margin-bottom: 9.4rem
+
+        .swiper-button-next
+            width: 5.3rem
+            height: 5.3rem
+            background-color: $top-white
+
+            &::after
+                font-size: 0
+                background: url(../images/arrow-right-icon.svg) no-repeat center
+                background-size: cover
+                width: 1.7rem
+                height: 1.8rem
+
+        .swiper-button-prev
+            width: 5.3rem
+            height: 5.3rem
+            background-color: $top-white
+            margin-right: 2.9rem
+
+            &::after
+                font-size: 0
+                background: url(../images/arrow-right-icon.svg) no-repeat center
+                background-size: cover
+                width: 1.7rem
+                height: 1.8rem
+                transform: rotate(180deg)
+
+        .active
+            border: 1px solid #F2F2F2
+            transition: .3s ease all
+            position: static
+
+            &:hover
+                background-color: #F9F9F9
+
+    .project_number
+        margin: 0 -3.1rem 0 -2.5rem
+
+        span
+            font-family: $TTHoves
+            display: inline-block
+            font-weight: $fw400
+            font-size: 2.4rem
+            line-height: 2.4rem
+            color: $subhead
+            margin: 0 3.1rem 0 2.5rem
+            position: relative
+
+            &::after
+                content: ""
+                position: absolute
+                transform: translate(50%) matrix(-0.71, 0.71, -0.71, -0.71, 0, 0)
+                border-top: 2px solid #E0E0E0
+                width: 4.3rem
+                bottom: 1rem
+                left: 50%
+
+            &:last-child:after
+                content: none
+
+    .slide_btn
+        @extend %top-white-btn
+        position: absolute
+        bottom: 0
+
+.about
+    margin-bottom: 15rem
+
+    &_wrapper
+        display: flex
+        background-color: #FBFBFB
+        padding: 3rem 7rem 0 10rem
+        align-items: center
+        height: 43.5rem
+
+    &_wrapper-images
+        display: flex
+        flex-direction: column
+        margin: -3rem 0
+
+        img
+            &:first-child
+                margin: 3rem 0
+
+    .about_images
+        padding: 0 3rem
+
+    &_info
+        width: 50%
+
+    &_info-title
+        font-family: $TTHoves
+        font-weight: $fw300
+        font-size: 6.4rem
+        line-height: 6.4rem
+        color: $subhead
+        margin-bottom: 2rem
+
+    &_info-text
+        font-family: $TTHoves
+        font-weight: $fw300
+        font-size: 1.6rem
+        line-height: 2.5rem
+        color: $black
+        margin-bottom: 2rem
+
+    &_link-btn
+        @extend %top-white-btn
+
+    &_link-btn:after
+        padding-right: 3rem
+
+.tasks
+    margin-bottom: 12rem
+
+    &_title
+        font-family: $TTHoves
+        font-weight: $fw300
+        font-size: 6.4rem
+        line-height: 6.4rem
+        color: $subhead
+        margin-bottom: 6.2rem
+
+    &_wrapper
+        display: flex
+        justify-content: space-between
+
+    &_item
+        display: flex
+        align-items: center
+        align-self: stretch
+        max-width: 58rem
+
+        &:first-child
+            max-width: 41.3rem
+
+    &_item-num
+        font-family: $SFDisplay
+        font-weight: $fw900
+        font-size: 20rem
+        line-height: 14.8rem
+        color: #F2F2F2
+        display: block
+
+    &_text
+        font-family: $TTHoves
+        font-weight: $fw400
+        font-size: 2.2rem
+        line-height: 3.6rem
+        color: $top-color
+        padding-left: 3rem
+        display: inline-block
+
+.presentation
+    margin-bottom: 12rem
+
+    &_title
+        font-family: $TTHoves
+        font-weight: $fw300
+        font-size: 6.4rem
+        line-height: 6.4rem
+        color: $subhead
+        margin-bottom: 6rem
+
+    &_grid-wrapper
+        display: grid
+        grid-gap: 3rem
+        grid-auto-flow: column
+
+    &_images
+
+        img
+            object-fit: cover
+            width: 100%
+            height: 100%
+
+.presentation_btn
+    @extend %top-color-btn
+
+.feedback
+    margin-bottom: 12rem
+
+    &_flex-wrapper
+        display: flex
+        justify-content: space-between
+        margin-bottom: 2.2rem
+
+    &_title
+        font-family: $TTHoves
+        font-weight: $fw300
+        font-size: 6.4rem
+        line-height: 6.4rem
+        color: $subhead
+        margin-bottom: 2.2rem
+
+    &_form
+        max-width: 39.1rem
+        width: 100%
+
+    .form
+        display: flex
+        flex-direction: column
+        margin: -1rem 0
+        max-height: 36.9rem
+        height: 100%
+
+    .feedback_input
+        margin: 1rem 0
+        padding: 1.5rem 0 1.5rem 2.1rem
+        background-color: #F3F3F3
+        border: none
+        font-family: $TTHoves
+        font-weight: $fw400
+        font-size: 1.4rem
+        line-height: 1.7rem
+        color: $input-color
+        resize: none
+        &::placeholder
+            font-family: $TTHoves
+            font-weight: $fw400
+            font-size: 1.4rem
+            line-height: 1.7rem
+            color: $input-color
+
+        &:last-child
+            margin: 0
+
+/* Customize the label (the container) */
+.feedback_container
+    display: block
+    position: relative
+    font-family: $TTHoves
+    font-weight: $fw400
+    line-height: 1.7rem
+    font-size: 1.4rem
+    padding-left: 35px
+    cursor: pointer
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+    max-width: 35.1rem
+    color: $top-color
+    margin-bottom: 2.1rem
+
+/* Hide the browser's default checkbox */
+.feedback_container input
+    position: absolute
+    opacity: 0
+    cursor: pointer
+    height: 0
+    width: 0
+
+/* Create a custom checkbox */
+.checkmark
+    position: absolute
+    top: 0
+    left: 0
+    height: 25px
+    width: 25px
+    background-color: #eee
+    transition: .3s ease all
+
+/* On mouse-over, add a grey background color */
+.feedback_container:hover input ~ .checkmark
+    background-color: #ccc
+
+/* When the checkbox is checked, add a blue background */
+.feedback_container input:checked ~ .checkmark
+    background-color: #eee
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after
+    content: ""
+    position: absolute
+    display: none
+
+/* Show the checkmark when checked */
+.feedback_container input:checked ~ .checkmark:after
+    display: block
+
+/* Style the checkmark/indicator */
+.feedback_container .checkmark:after
+    left: 50%
+    top: 50%
+    width: 1.2rem
+    height: .9rem
+    background: url(../images/chekmark-feedback.svg) no-repeat bottom center
+    background-size: cover
+    transform: translate(-50%, -50%)
+
+.feedback_btn
+    @extend %top-color-btn
+    &::after
+        padding-right: 3rem
+    &:hover
+        box-shadow: 0px 1px 1px 1px black
+
+.footer
+    padding-top: 5.8rem
+    background-color: #2C2C2C
+
+    &_wrapper
+        display: flex
+        justify-content: space-between
+        padding-bottom: 6rem
+
+    &_content-wrapper
+        width: 100%
+        display: flex
+        justify-content: space-around
+
+    &_main-title
+        font-family: $TTHoves
+        font-weight: 700
+        font-size: 1.6rem
+        line-height: 2rem
+        color: $top-white
+        display: inline-block
+        margin-bottom: 2.6rem
+
+    &_menu-item
+        margin-bottom: 1.6rem
+
+        &:last-child
+            margin-bottom: 0
+
+    &_menu-link
+        font-family: $TTHoves
+        font-weight: 500
+        font-size: 1.4rem
+        line-height: 2.4rem
+        color: $top-white
+        text-decoration: none
+        padding: .3rem 0
+        border: .1rem solid transparent
+            right: none
+            left: none
+        transition: .3s ease all
+
+        &:hover
+            border: .1rem solid $top-white
+            border:
+                right: none
+                left: none
+
+    &_contacts
+        display: flex
+        flex-direction: column
+
+    &_contacts-link
+        font-family: $TTHoves
+        font-weight: 500
+        font-size: 1.4rem
+        line-height: 2.4rem
+        color: $top-white
+        text-decoration: none
+        display: inline-block
+        position: relative
+        padding-left: 2.8rem
+
+        &::before
+            content: ""
+            position: absolute
+            width: 1.6rem
+            height: 1.6rem
+            background: var(--footer-icon)
+            left: 0
+            top: 5px
+
+        &:first-child:before
+            top: 0
+
+        &:nth-child(2):before
+            top: .2rem
+
+    &_social
+        display: flex
+        flex-direction: column
+        max-width: 19.3rem
+        width: 100%
+
+.social_link-inner
+    display: flex
+    justify-content: space-between
+
+.contacts_flex-wrapper
+    display: flex
+    justify-content: space-between
+    flex-direction: column
+    height: 100%
+
+.footer_copyright
+    border-top: 1px solid rgba(255,255 ,255, .1 )
+    mix-blend-mode: normal
+    span
+        font-family: $OpenSans
+        font-weight: 400
+        font-size: 1.2rem
+        line-height: 2.2rem
+        color: rgba(200, 200, 200, 0.5)
+        display: block
+        padding: 2.4rem 0
+        text-align: center
+
+        &::before
+            content: "©"
+            padding-right: .5rem
