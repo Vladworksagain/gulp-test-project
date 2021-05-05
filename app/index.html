@@ -16,6 +16,9 @@
                 <a href="/" class="header_link-logo">
                     <img src="images/main-logo.png" alt="logo" class="header_logo-images">
                 </a>
+                <div class="header_burger-menu">
+                    <span></span>
+                </div>
                 <nav class="header_menu">
                     <ul class="header_list">
                         <li class="header_list-item">
@@ -65,12 +68,8 @@
                             <div class="swiper-button-next active"></div>
                         </div>
                         <div class="project_number">
-                            <span>
-                                01
-                            </span>
-                            <span>
-                                02
-                            </span>
+                            <div class="swiper-pagination">
+                            </div>
                         </div>
                     </div>
                     <div class="swiper-container">
@@ -154,57 +153,58 @@
                     Наши проекты
                 </h3>
                 <div class="presentation_grid-wrapper">
-                    <div class="presentation_images">
+                    <div class="presentation_item">
                         <img src="images/presentation-image1.png" alt="#">
                     </div>
-                    <div class="presentation_images">
+                    <div class="presentation_item">
                         <img src="images/presentation-image2.png" alt="#">
                     </div>
-                    <div class="presentation_images">
+                    <div class="presentation_item">
                         <img src="images/presentation-image3.png" alt="#">
                     </div>
-                    <div class="presentation_images">
+                    <div class="presentation_item">
                         <img src="images/presentation-image4.png" alt="#">
                     </div>
-                    <div class="presentation_images">
+                    <div class="presentation_item">
                         <img src="images/presentation-image5.png" alt="#">
                     </div>
-                    <a href="" class="presentation_btn">
-                        ВСЕ ПРОЕКТЫ
-                    </a>
                 </div>
+                <a href="" class="presentation_btn">
+                    ВСЕ ПРОЕКТЫ
+                </a>
             </div>
         </section>
 
         <section class="feedback">
-            <div class="container">
+            <div class="container ">
                 <h4 class="feedback_title">
                     Связаться с нами
                 </h4>
                 <div class="feedback_flex-wrapper">
                     <div class="feedback_form">
-                        <form action="#" class="form">
+                        <form class="form">
                             <input type="text" placeholder="Имя" class="feedback_input">
-                            <input type="tel" placeholder="Номер телефона*" class="feedback_input">
-                            <input type="email" placeholder="E-mail*" class="feedback_input">
+                            <input type="tel" placeholder="Номер телефона*" class="feedback_input" required>
+                            <input type="email" placeholder="E-mail*" class="feedback_input" required>
                             <input type="text" placeholder="Интересующий товар/услуга" class="feedback_input">
                             <textarea cols="30" rows="10" placeholder="Сообщение*" class="feedback_input"></textarea>
+                            <label class="feedback_container">Отправляя заявку Вы соглашаетесь
+                                с политикой
+                                конфиденциальности
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                            <div>
+                                <button type="submit" class="feedback_btn">
+                                    ОТПРАВИТЬ
+                                </button>
+                            </div>
                         </form>
                     </div>
                     <div class="feedback_images">
                         <img src="images/feedback-img.png" alt="feedback-img">
                     </div>
                 </div>
-                <label class="feedback_container">Отправляя заявку Вы соглашаетесь
-                    с политикой
-                    конфиденциальности
-                    <input type="checkbox" checked="checked">
-                    <span class="checkmark">
-                    </span>
-                </label>
-                <a href="" class="feedback_btn">
-                    ОТПРАВИТЬ
-                </a>
             </div>
         </section>
     </div>
@@ -253,14 +253,17 @@
                     <div class="footer_contacts">
                         <span class="footer_contacts-title footer_main-title">Контакты</span>
                         <div class="contacts_flex-wrapper">
-                            <a href="#" class="footer_contacts-link" style="--footer-icon: url(../images/footer-location-icon.svg) no-repeat center center">
+                            <a href="#" class="footer_contacts-link"
+                                style="--footer-icon: url(../images/footer-location-icon.svg) no-repeat center center">
                                 100000, Республика Казахстан, <br>
                                 г. Караганда, ул. Телевизионная 10
                             </a>
-                            <a href="tel:+38(000)0000000" class="footer_contacts-link" style="--footer-icon: url(../images/footer-tel-icon.svg) no-repeat center center">
+                            <a href="tel:+38(000)0000000" class="footer_contacts-link"
+                                style="--footer-icon: url(../images/footer-tel-icon.svg) no-repeat center center">
                                 +38 (000) 000 00 00
                             </a>
-                            <a href="#" class="footer_contacts-link" style="--footer-icon: url(../images/footer-mail-icon.svg) no-repeat center center">
+                            <a href="#" class="footer_contacts-link"
+                                style="--footer-icon: url(../images/footer-mail-icon.svg) no-repeat center center">
                                 mail@gmail.com
                             </a>
                         </div>
@@ -288,7 +291,7 @@
             </div>
         </div>
         <div class="footer_copyright">
-            <span>2019 Digital Project. Все права защищены.</span>  
+            <span>2019 Digital Project. Все права защищены.</span>
         </div>
     </footer>
 

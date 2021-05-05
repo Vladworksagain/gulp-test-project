@@ -40,6 +40,8 @@ function cleanDist() {
 
 function scripts() {
     return src([
+        'node_modules/inputmask/dist/inputmask.min.js',
+        'node_modules/just-validate/dist/js/just-validate.min.js',
         'node_modules/swiper/swiper-bundle.js',
         'app/js/main.js'
     ])
