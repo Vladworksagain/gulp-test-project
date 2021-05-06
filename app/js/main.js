@@ -45,3 +45,9 @@ function menuBurger() {
 }
 
 // header_burger //
+
+AOS.init(
+  {
+    offset: 250
+  }
+);

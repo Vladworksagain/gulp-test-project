@@ -43,6 +43,7 @@ function scripts() {
         'node_modules/inputmask/dist/inputmask.min.js',
         'node_modules/just-validate/dist/js/just-validate.min.js',
         'node_modules/swiper/swiper-bundle.js',
+        'node_modules/aos/dist/aos.js',
         'app/js/main.js'
     ])
     .pipe(concat('main.min.js'))
