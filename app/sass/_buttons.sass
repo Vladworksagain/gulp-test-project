@@ -9,27 +9,12 @@
     font-size: 1.2rem
     line-height: 1.2rem
     color: $top-color
-    letter-spacing: 0.2rem
+    letter-spacing: 0.2em
     position: relative
     transition: .3s ease all
     display: flex
     align-items: center
     justify-content: center
-    &::after
-        content: ""
-        background: url(../images/arrow-right-icon.svg) no-repeat center
-        width: 1.7rem
-        height: 0.7rem
-        top: .3rem
-        padding-right: 1.5rem
-    &:hover
-        background-color: #221c1ce6
-        color: $top-white
-    &:hover:after
-        background-image: url(../images/arrow-hover.svg)
-        background-repeat: no-repeat
-        width: 1.7rem
-        height: 0.7rem
 
 %top-color-btn
     width: 22.2rem
@@ -48,19 +33,3 @@
     display: flex
     align-items: center
     justify-content: center
-    // arrow-hover.svg
-    &::after
-        content: ""
-        background: url(../images/arrow-hover.svg) no-repeat center
-        width: 1.7rem
-        height: 0.7rem
-        top: .3rem
-        padding-right: 1.5rem
-    &:hover
-        background-color: #FBFBFB
-        color: $top-color
-    &:hover:after
-        background-image: url(../images/arrow-right-icon.svg)
-        background-repeat: no-repeat
-        width: 1.7rem
-        height: 0.7rem
