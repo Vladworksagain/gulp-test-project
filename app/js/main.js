@@ -30,18 +30,32 @@ im.mask(selector);
 
 // header_burger //
 
-let burgerButton = document.querySelector('.header_burger-menu');
+const burgerButton = document.querySelector('.burger-btn');
+
+const closeButton = document.querySelector('.burger_close-btn')
+
+const hideScroll = document.querySelector('body');
 
 burgerButton.addEventListener('click', menuBurger);
 
 function menuBurger() {
-  let menuList = document.querySelector('.header_menu');
-  if (menuList.classList.contains('menu_active')) {
-    menuList.classList.remove('menu_active')
-  } else {
-    menuList.classList.add('menu_active')
-  }
-  burgerButton.classList.toggle('burger_active')
+  const menuList = document.querySelector('.header_menu');
+
+  menuList.classList.add('menu_active')
+
+  hideScroll.classList.add('hide_scroll')
+
+  closeButton.addEventListener('click', () => {
+    if (menuList.classList.contains('menu_active')) {
+      menuList.classList.remove('menu_active')
+    }
+    burgerButton.classList.remove('burger_active')
+
+    hideScroll.classList.remove('hide_scroll')
+
+  })
+
+  burgerButton.classList.add('burger_active')
 }
 
 // header_burger //

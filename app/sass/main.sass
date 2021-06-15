@@ -8,6 +8,10 @@ body, html
     height: 100%
     font-size: 10px
 
+body
+    &.hide_scroll
+        overflow: hidden
+
 .wrapper
     display: flex
     flex-direction: column
@@ -27,6 +31,25 @@ section
 .btn_arrow
     margin-left: 1.5rem
 
+.default_title
+    font-family: "TTHoves","sans-serif"
+    font-weight: 300
+    font-size: 6.4rem
+    line-height: 6.4rem
+    color: #BDBDBD
+    margin-bottom: 6rem
+
+    @media screen and (max-width: 868px)
+        font-size: 4rem
+        line-height: 4rem
+        margin-bottom: 4rem
+
+    @media screen and (max-width: 540px)
+        font-size: 3.5rem
+        line-height: 3rem
+        text-align: center
+        margin-bottom: 3rem
+
 .header
     padding: 2.9rem 0 3.2rem 0
     position: relative
@@ -39,7 +62,7 @@ section
     &_link-logo
         display: block
 
-    &_burger-menu
+    .burger-btn
         position: relative
         width: 3.9rem
         height: 2.5rem
@@ -57,7 +80,7 @@ section
             left: 0
             width: 3.9rem
             height: 0.5rem
-            transition: .3s ease all
+            transition: .5s ease all
 
         &::after
             content: ""
@@ -67,7 +90,7 @@ section
             left: 0
             width: 3.9rem
             height: 0.5rem
-            transition: .3s ease all
+            transition: .5s ease all
 
         span
             position: absolute
@@ -75,7 +98,22 @@ section
             width: 3.9rem
             height: 0.5rem
             background-color: $subhead
-            transition: .3s ease all
+            transition: .5s ease all
+
+    .burger_close-btn
+        background: transparent
+        border: none
+        display: none
+
+        img
+            width: 2.5rem
+            height: 2.5rem
+
+        @media screen and (max-width: 768px)
+            display: block
+            position: absolute
+            top: 2rem
+            right: 1.9rem
 
     .burger_active:before
         transform: rotate(-45deg)
@@ -98,23 +136,60 @@ section
         width: 100%
 
         @media screen and ( max-width: 768px )
+            animation-name: close
+            animation-duration: .9s
+            animation-iteration-count: 1
+            animation-direction: normal
+            animation-timing-function: ease-out
+            animation-fill-mode: forwards
+            animation-delay: 0s
+            background-color: #dedada
+            width: 100%
             position: fixed
-            width: 100vw
-            height: 100vw
-            right: 50%
-            transform: translateY(-100%) translate(50%)
-            background-color: $subhead
-            z-index: 20
-            transition: .3s ease all
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0
+
+            @keyframes close
+                0%
+                    opacity: 1
+                    visibility: visible
+
+                100%
+                    opacity: 0
+                    visibility: hidden
 
             &.menu_active
-                transform: translateY(55%) translate(50%)
-                right: 50%
-                height: 100vh
+                background-color: #dedada
+                z-index: 20
+                transition: .3s ease all
+                position: fixed
+                width: 100%
+                top: 0
+                right: 0
+                bottom: 0
+                left: 0
+                overflow-x: hidden
+                overflow-y: auto
 
-                // @media screen and ( max-width: 500px )
-                //     height: 100%
-                //     transform: translateY(55%) translate(50%)
+                animation-name: open
+                animation-duration: .9s
+                animation-iteration-count: 1
+                animation-direction: normal
+                animation-timing-function: ease-out
+                animation-fill-mode: forwards
+                animation-delay: 0s
+                display: block
+
+                @keyframes open
+                    0%
+                        opacity: 0
+                        visibility: hidden
+
+                    100%
+                        opacity: 1
+                        visibility: visible
 
     &_list
         display: flex
@@ -127,11 +202,10 @@ section
 
         @media screen and ( max-width: 768px )
             flex-direction: column
+            justify-content: center
+            align-items: center
             text-align: center
-            height: 65%
-
-        @media screen and ( max-width: 468px )
-            height: 80%
+            height: 100%
 
     &_list-item
         border: .1rem solid transparent
@@ -142,7 +216,7 @@ section
         transition: .3s ease all
 
         @media screen and ( max-width: 768px )
-            margin-bottom: 2.5rem
+            margin-bottom: 5.5rem
 
             &:last-child
                 margin: 0
@@ -170,6 +244,9 @@ section
 
     @media screen and ( max-width: 868px )
         margin-bottom: 6rem
+
+    @media screen and (max-width: 540px)
+        margin-bottom: 3rem
 
     .swiper-container
         max-width: 77rem
@@ -315,76 +392,91 @@ section
     @media screen and ( max-width: 868px )
         margin-bottom: 7rem
 
+    @media screen and (max-width: 540px)
+        margin-bottom: 3rem
+
     &_wrapper
         display: flex
         background-color: #FBFBFB
-        padding: 3rem 7rem 0 10rem
         align-items: center
-        height: 43.5rem
+        height: 100%
+        max-height: 43.5rem
+        padding: 4rem 7rem 0 7rem
 
-        @media screen and ( max-width: 1190px )
-            padding: 3rem 0 0 0
+        @media screen and (max-width: 1070px)
+            padding: 3rem 4.5rem 3rem 4.5rem
 
-        @media screen and ( max-width: 996px )
+        @media screen and (max-width: 895px)
+            padding: 2rem 2.5rem 2.5rem 2.5rem
+
+        @media screen and (max-width: 540px)
             flex-direction: column
-            height: 100%
-
-        @media screen and ( max-width: 768px )
-            width: 100%
+            max-height: 100%
 
     &_wrapper-images
-        display: flex
-        flex-direction: column
-        margin: -3rem 0
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        grid-gap: 3rem
 
-        @media screen and ( max-width: 996px )
+        @media screen and (max-width: 895px)
+            grid-gap: 1.5rem
+
+        @media screen and (max-width: 540px)
+            margin-bottom: 2.5rem
+
+        .about-placeholder_image
+            max-width: 27rem
             width: 100%
+            min-height: 14rem
+            max-height: 34.5rem
+            transition: .3s ease all
 
-        img
-            &:first-child
-                margin: 3rem 0
-
-        @media screen and ( max-width: 996px )
-            &:nth-child(-n+2)
-                margin: 3rem 0
-
-            @media screen and ( max-width: 996px )
-                object-fit: contain
+            img
+                object-fit: cover
                 width: 100%
                 height: 100%
 
-    .about_images
-        padding: 0 3rem
+            &:nth-child(2)
+                grid-row: span 2
+                align-self: center
+                max-height: 34.5rem
+                height: auto
 
-        @media screen and ( max-width: 994px )
-            padding: 0 2rem
-            object-fit: contain
-            width: 100%
-            height: 100%
+            &:hover
+                transform: translateY(-1rem)
+                transition: .3s ease all
+
+                @media screen and (max-width: 895px)
+                    height: auto
+
+            @media screen and (max-width: 895px)
+                max-width: 20rem
 
     &_info
-        width: 50%
+        flex: 45%
+        margin-left: 3rem
 
-        @media screen and ( max-width: 994px )
-            width: 100%
-
-        @media screen and ( max-width: 996px )
-            order: -1
-            margin-bottom: 2.5rem
+        @media screen and (max-width: 540px)
+            margin-left: 0
+            flex: 100%
 
     &_info-title
-        font-family: $TTHoves
-        font-weight: $fw300
-        font-size: 6.4rem
-        line-height: 6.4rem
-        color: $subhead
         margin-bottom: 2rem
 
-        @media screen and ( max-width: 994px )
-            font-size: 6.2rem
-
-        @media screen and ( max-width: 400px )
+        @media screen and (max-width: 1020px)
             font-size: 5rem
+
+        @media screen and (max-width: 868px)
+            font-size: 4rem
+            line-height: 4rem
+            margin-bottom: 4rem
+
+        @media screen and (max-width: 868px)
+            font-size: 3.5rem
+            line-height: 3rem
+            text-align: center
+            margin-bottom: 3rem
+
     &_info-text
         font-family: $TTHoves
         font-weight: $fw300
@@ -393,73 +485,76 @@ section
         color: $black
         margin-bottom: 2rem
 
+        @media screen and (max-width: 1070px)
+            font-size: 1.3rem
+
+        @media screen and (max-width: 895px)
+            font-size: 1.1rem
+
+        @media screen and (max-width: 540px)
+            font-size: 1rem
+
     &_link-btn
         @extend %top-white-btn
 
-        @media screen and ( max-width: 768px )
-            margin: 0 auto
-
-    &_link-btn:after
-        padding-right: 3rem
-
 .tasks
     margin-bottom: 12rem
+    overflow: hidden
 
     @media screen and ( max-width: 768px )
         margin-bottom: 6rem
 
-    &_title
-        font-family: $TTHoves
-        font-weight: $fw300
-        font-size: 6.4rem
-        line-height: 6.4rem
-        color: $subhead
-        margin-bottom: 6.2rem
-
-        @media screen and ( max-width: 568px )
-            text-align: center
-            font-size: 5.8rem
+    @media screen and (max-width: 540px)
+        margin-bottom: 3rem
 
     &_wrapper
         display: flex
         justify-content: space-between
+        align-items: center
         flex-wrap: wrap
+        margin-bottom: -2.5rem
 
-        @media screen and ( max-width: 1032px )
-            width: 100%
-            margin: -2rem
-
-        @media screen and ( max-width: 768px )
-            margin: 0
+        @media screen and (max-width: 768px)
+            flex-direction: column
 
     &_item
         display: flex
         align-items: center
         align-self: stretch
-        max-width: 58rem
+        width: 50%
+        margin-bottom: 2.5rem
 
-        @media screen and ( max-width: 1032px )
-            max-width: 100%
-            align-items: center
-            margin: 2rem
+        &:nth-child(odd)
 
-        @media screen and ( max-width: 568px )
-            flex-direction: column
-        &:first-child
-            max-width: 41.3rem
+            .tasks_text
+                max-width: 28rem
 
-            @media screen and ( max-width: 1032px )
-                max-width: 100%
+                @media screen and (max-width: 540px)
+                    max-width: 100%
+
+        @media screen and (max-width: 768px)
+            width: 100%
+
     &_item-num
         font-family: $SFDisplay
         font-weight: $fw900
         font-size: 20rem
-        line-height: 14.8rem
+        line-height: 80%
         color: #F2F2F2
         display: block
+        min-width: 12rem
+        transition: .3s ease all
 
-        @media screen and ( max-width: 568px )
-            margin-bottom: 2.5rem
+        &:hover
+            transform: translateY(-1rem)
+            transition: .3s ease all
+
+        @media screen and (max-width: 1033px)
+            font-size: 15rem
+
+        @media screen and (max-width: 540px)
+            font-size: 6rem
+            min-width: 6rem
 
     &_text
         font-family: $TTHoves
@@ -467,31 +562,24 @@ section
         font-size: 2.2rem
         line-height: 3.6rem
         color: $top-color
-        padding-left: 3rem
+        margin-left: 3rem
         display: inline-block
 
-        @media screen and ( max-width: 568px )
-            font-size: 2rem
+        @media screen and (max-width: 1033px)
+            font-size: 1.9rem
+            line-height: 3rem
+
+        @media screen and (max-width: 540px)
+            font-size: 1.6rem
+            line-height: 100%
+            margin-left: .5rem
 
 .presentation
     margin-bottom: 12rem
+    overflow: hidden
 
     @media screen and ( max-width: 868px )
         margin-bottom: 6rem
-
-    &_title
-        font-family: $TTHoves
-        font-weight: $fw300
-        font-size: 6.4rem
-        line-height: 6.4rem
-        color: $subhead
-        margin-bottom: 6rem
-
-        @media screen and ( max-width: 1179px )
-            margin-bottom: 3rem
-
-        @media screen and ( max-width: 568px )
-            text-align: center
 
     &_grid-wrapper
         display: grid
@@ -515,6 +603,7 @@ section
         width: 100%
         background-size: cover
         position: relative
+        cursor: pointer
 
         &:nth-child(1)
             grid-column: span 2
@@ -608,7 +697,16 @@ section
             background: transparent
             height: 4.1rem
             max-width: 22.2rem
-            width: 100%
+            width: auto
+
+            &:hover
+                background-color: transparent
+                color: $top-white
+                box-shadow: 0 0 0 0 transparent
+
+                .btn_arrow
+                    fill: $top-white
+
 
 .presentation_btn
     @extend %top-color-btn
@@ -625,41 +723,39 @@ section
     @media screen and ( max-width: 868px )
         margin-bottom: 6rem
 
+    @media screen and (max-width: 540px)
+        margin-bottom: 3rem
+
     &_flex-wrapper
         display: flex
         justify-content: space-between
-        margin-bottom: 2.2rem
 
-        @media screen and ( max-width: 1192px )
+        @media screen and ( max-width: 600px )
             flex-direction: column
 
     &_title
-        font-family: $TTHoves
-        font-weight: $fw300
-        font-size: 6.4rem
-        line-height: 6.4rem
-        color: $subhead
-        margin-bottom: 2.2rem
 
-        @media screen and ( max-width: 568px )
-            font-size: 5.4rem
-            text-align: center
+        margin-bottom: 2.2rem
 
     &_form
         max-width: 39.1rem
         width: 100%
+        padding-right: 1.5rem
 
-        @media screen and ( max-width: 1192px )
+        @media screen and ( max-width: 600px )
             max-width: 100%
+            padding-right: 0
+            order: 1
 
     .feedback_images
         max-width: 74.9rem
-        height: 100%
-        max-height: 36.9rem
+        height: auto
+        max-height: 37.3rem
 
-        @media screen and ( max-width: 1192px )
+        @media screen and ( max-width: 600px )
             max-width: 100%
             max-height: 100%
+            margin-bottom: 2.5rem
 
         img
             object-fit: cover
@@ -669,7 +765,6 @@ section
     .form
         display: flex
         flex-direction: column
-        max-height: 50.5rem
         height: 100%
 
     .feedback_input
@@ -683,6 +778,7 @@ section
         line-height: 1.7rem
         color: $input-color
         resize: none
+
         &::placeholder
             font-family: $TTHoves
             font-weight: $fw400
@@ -693,7 +789,11 @@ section
         &:last-child
             margin: 0
 
-/* Customize the label (the container) */
+    textarea
+        max-height: 14.6rem
+        height: 100%
+        margin-bottom: 0 !important
+
 .feedback_container
     display: block
     position: relative
@@ -703,15 +803,11 @@ section
     font-size: 1.4rem
     padding-left: 35px
     cursor: pointer
-    -webkit-user-select: none
-    -moz-user-select: none
-    -ms-user-select: none
     user-select: none
     max-width: 35.1rem
     color: $top-color
-    margin-bottom: 2.1rem
+    margin: 2.2rem 0
 
-/* Hide the browser's default checkbox */
 .feedback_container input
     position: absolute
     opacity: 0
@@ -719,35 +815,28 @@ section
     height: 0
     width: 0
 
-/* Create a custom checkbox */
 .checkmark
     position: absolute
-    top: 0
+    top: .4rem
     left: 0
     height: 25px
     width: 25px
     background-color: #eee
-    transition: .3s ease all
 
-/* On mouse-over, add a grey background color */
 .feedback_container:hover input ~ .checkmark
     background-color: #ccc
 
-/* When the checkbox is checked, add a blue background */
 .feedback_container input:checked ~ .checkmark
     background-color: #eee
 
-/* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after
     content: ""
     position: absolute
     display: none
 
-/* Show the checkmark when checked */
 .feedback_container input:checked ~ .checkmark:after
     display: block
 
-/* Style the checkmark/indicator */
 .feedback_container .checkmark:after
     left: 50%
     top: 50%
@@ -760,13 +849,9 @@ section
 .feedback_btn
     @extend %top-color-btn
     border: none
-    &::after
-        padding-right: 3rem
-    &:hover
-        background-color: #FBFBFB
 
-    @media screen and ( max-width: 1192px )
-        margin-bottom: 2.5rem
+    .btn_arrow
+        fill: $top-white
 
 .footer
     padding-top: 5.8rem
@@ -902,8 +987,8 @@ section
             transform: translate(-50%, -19%)
 
         @media screen and ( max-width: 480px )
-            bottom: 9%
-            transform: translate(-50%, -9%)
+            bottom: 11%
+            transform: translate(-50%, -11%)
 
 .social_link-inner
     display: flex
@@ -918,6 +1003,7 @@ section
 
     @media screen and ( max-width: 868px )
         align-items: center
+        justify-content: space-evenly
 
 .footer_copyright
     border-top: 1px solid rgba(255,255 ,255, .1 )
