@@ -134,31 +134,11 @@ section
     &_menu
         max-width: 77rem
         width: 100%
+        overflow-x: hidden
+        overflow-y: auto
 
         @media screen and ( max-width: 768px )
-            animation-name: close
-            animation-duration: .9s
-            animation-iteration-count: 1
-            animation-direction: normal
-            animation-timing-function: ease-out
-            animation-fill-mode: forwards
-            animation-delay: 0s
-            background-color: #dedada
-            width: 100%
-            position: fixed
-            top: 0
-            left: 0
-            right: 0
-            bottom: 0
-
-            @keyframes close
-                0%
-                    opacity: 1
-                    visibility: visible
-
-                100%
-                    opacity: 0
-                    visibility: hidden
+            display: none
 
             &.menu_active
                 background-color: #dedada
@@ -170,8 +150,6 @@ section
                 right: 0
                 bottom: 0
                 left: 0
-                overflow-x: hidden
-                overflow-y: auto
 
                 animation-name: open
                 animation-duration: .9s
